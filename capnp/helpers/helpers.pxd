@@ -3,6 +3,7 @@ from capnp.includes.capnp_cpp cimport (
     RemotePromise, DynamicCapability, InterfaceSchema, EnumSchema, StructSchema, DynamicValue,
     Capability, RpcSystem, MessageBuilder, MessageReader, TwoPartyVatNetwork, AnyPointer,
     DynamicStruct_Builder, WaitScope, AsyncIoContext, StringPtr, TaskSet, Timer, AsyncIoStreamReadHelper,
+    Node, DynamicStruct
 )
 
 from capnp.includes.schema_cpp cimport ByteArray
@@ -48,3 +49,7 @@ cdef extern from "capnp/helpers/asyncHelper.h":
     PyObject * waitPyPromise(PyPromise *, WaitScope&)
     void waitVoidPromise(VoidPromise *, WaitScope&)
     Timer * getTimer(AsyncIoContext *) except +reraise_kj_exception
+
+cdef extern from "capnp/helpers/deserialize.h":
+    Node.Reader toReader(DynamicStruct.Reader reader) except +reraise_kj_exception
+
