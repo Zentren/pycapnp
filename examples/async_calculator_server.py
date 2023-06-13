@@ -109,7 +109,6 @@ def evaluate_impl(expression, params=None):
 
 
 class ValueImpl(calculator_capnp.Calculator.Value.Server):
-
     "Simple implementation of the Calculator.Value Cap'n Proto interface."
 
     def __init__(self, value):
@@ -120,7 +119,6 @@ class ValueImpl(calculator_capnp.Calculator.Value.Server):
 
 
 class FunctionImpl(calculator_capnp.Calculator.Function.Server):
-
     """Implementation of the Calculator.Function Cap'n Proto interface, where the
     function is defined by a Calculator.Expression."""
 
@@ -142,7 +140,6 @@ class FunctionImpl(calculator_capnp.Calculator.Function.Server):
 
 
 class OperatorImpl(calculator_capnp.Calculator.Function.Server):
-
     """Implementation of the Calculator.Function Cap'n Proto interface, wrapping
     basic binary arithmetic operators."""
 
@@ -167,7 +164,6 @@ class OperatorImpl(calculator_capnp.Calculator.Function.Server):
 
 
 class CalculatorImpl(calculator_capnp.Calculator.Server):
-
     "Implementation of the Calculator Cap'n Proto interface."
 
     def evaluate(self, expression, _context, **kwargs):
